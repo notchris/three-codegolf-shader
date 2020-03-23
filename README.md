@@ -1,9 +1,18 @@
-# THREE EDITOR
+# three-codegolf-shader
 
-## Install
+Load a [codegolf](https://codegolf.tk) as an animated shader material for three.js. Created by cantelope and notchris.
 
+## Run demo
+
+```bash
 npm install
-
-## Run
-
+```
+```bash
 npm run start
+```
+## Usage
+
+TBD
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
