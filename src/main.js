@@ -140,10 +140,9 @@ animate = () => {
 }
 
 function getId(id) {
-  fetch(`//codegolf.dweet.net:8088/https://codegolf.dweet.net/code/?id=${id}`)
+  fetch(`https://codegolf.dweet.net/code/?id=${id}`)
   .then(tx=>tx.text()).then(tx=>{
     if (tx === '') {
-      console.log(`ID ${id} not found.`);
       return;
     }
     if (scene) {
