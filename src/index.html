@@ -4,26 +4,29 @@
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width,initial-scale=1.0">
-     <title>THREE Quad View</title>
+     <title>codegolf | Shader Demo</title>
  </head>
  <body>
     <div id="app">
-        <div id="info">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Active Pad:</td>
-                        <td><span id="activePad">None</span></td>
-                    </tr>
-                    <tr>
-                        <td>Active Pad DFC:</td>
-                        <td><span id="activeDistance"></span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <canvas id="source"></canvas>
         <div id="render"></div>
-        <div id="map"></div>
     </div>
+    <script id="vertex_shader" type="x-shader/x-vertex">
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+        }
+        </script>
+    
+        <script id="fragment_shader" type="x-shader/x-fragment">
+          uniform vec3 color;
+          uniform sampler2D texture;
+          varying vec2 vUv;
+          void main() {
+              vec4 tColor = texture2D( texture, vUv );
+              gl_FragColor = vec4( mix( color, tColor.rgb, tColor.a ), 1.0 );
+          }
+        </script>
  </body>
  </html>

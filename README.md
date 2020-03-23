@@ -1,4 +1,4 @@
-# THREE DRUM TEST THING
+# THREE EDITOR
 
 ## Install
 
